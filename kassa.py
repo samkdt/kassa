@@ -3,7 +3,7 @@ import tkinter as tk
 hj=1080
 br=1920
 num=0
-knapp=[]
+kvitto=[]
 
 class prod:
 	def __init__(self, id, namn, antal, pris):
@@ -16,6 +16,10 @@ class prod:
 def update_input():
 	text['text']= num
 
+def update_display():
+	for x in range(0,len(kvitto)):
+		kvitt['text']+=str(kvitto[x].antal) + "\t" + kvitto[x].namn + "\t" + str(kvitto[x].pris) + "\t" + str(kvitto[x].totpris) + "\n"
+
 def knapp_del():
 	global num
 	if(len(str(num)) > 1):
@@ -27,7 +31,8 @@ def knapp_clear():
 	global num
 	num=0
 	update_input()
-	
+	update_display()
+
 def knap_tryck(inp):
 	global num
 	num=num*10
@@ -38,6 +43,11 @@ def knap_tryck(inp):
 
 root = tk.Tk()
 
+kvitto.append(prod(1, "bajs", 2, 50))
+kvitto.append(prod(2, "mjölk", 3, 19))
+kvitto.append(prod(3, "horor", 1, 200))
+
+
 #avkomentera för full skärm
 #
 #root.overrideredirect(True)
@@ -45,6 +55,11 @@ root = tk.Tk()
 
 wind = tk.Canvas(root, height=hj, width=br)
 wind.pack()
+
+
+kvitt = tk.Label(root, font=100, anchor="nw")
+kvitt.place(relx=0, rely=0.15, relheight=1, relwidth=0.5)
+
 
 #numer display
 input = tk.Frame(root, bg="#ff00ff", bd=5)

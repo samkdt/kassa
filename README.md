@@ -1,0 +1,2 @@
+# kassa
+änkel kassa mjukvara

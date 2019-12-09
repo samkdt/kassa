@@ -1,3 +1,2 @@
 # kassa
-änkel kassa mjukvara
-inte klar än
+änkel kassa mjukvara som inte är klart än

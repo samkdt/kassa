@@ -6,8 +6,7 @@ num=0
 kvitto=[]
 
 class prod:
-	def __init__(self, id, namn, antal, pris):
-		self.id=id	
+	def __init__(self, namn, antal, pris):
 		self.namn=namn	
 		self.antal=antal
 		self.pris=pris	
@@ -18,7 +17,10 @@ def update_input():
 
 def update_display():
 	for x in range(0,len(kvitto)):
-		kvitt['text']+=str(kvitto[x].antal) + "\t" + kvitto[x].namn + "\t" + str(kvitto[x].pris) + "\t" + str(kvitto[x].totpris) + "\n"
+		antal['text']+=str(kvitto[x].antal) + "\n"
+		namn['text']+=kvitto[x].namn + "\n"
+		pris['text']+=str(kvitto[x].pris) + "\n"
+		totpris['text']+=str(kvitto[x].totpris) + "\n"
 
 def knapp_del():
 	global num
@@ -43,9 +45,9 @@ def knap_tryck(inp):
 
 root = tk.Tk()
 
-kvitto.append(prod(1, "bajs", 2, 50))
-kvitto.append(prod(2, "mjölk", 3, 19))
-kvitto.append(prod(3, "horor", 1, 200))
+kvitto.append(prod( "bajs", 2, 50))
+kvitto.append(prod( "mjölk", 3, 19))
+kvitto.append(prod( "horor", 1, 200))
 
 
 #avkomentera för full skärm
@@ -56,14 +58,25 @@ kvitto.append(prod(3, "horor", 1, 200))
 wind = tk.Canvas(root, height=hj, width=br)
 wind.pack()
 
+#kvitto display
+kvitt = tk.Frame(root, bg="#ff00ff", bd=5)
+kvitt.place(relx=0, rely=0, relheight=0.75, relwidth=0.5)
 
-kvitt = tk.Label(root, font=100, anchor="nw")
-kvitt.place(relx=0, rely=0.15, relheight=1, relwidth=0.5)
+antal=tk.Label(kvitt,text="antal\n", anchor="nw")
+antal.place(relx=0, rely=0, relheight=1, relwidth=0.1)
 
+namn=tk.Label(kvitt,text="namn\n", anchor="nw")
+namn.place(relx=0.1, rely=0, relheight=1, relwidth=0.7)
+
+pris=tk.Label(kvitt,text="pris\n", anchor="nw")
+pris.place(relx=0.8, rely=0, relheight=1, relwidth=0.1)
+
+totpris=tk.Label(kvitt,text="pris f.a.\n", anchor="nw")
+totpris.place(relx=0.9, rely=0, relheight=1, relwidth=0.1)
 
 #numer display
 input = tk.Frame(root, bg="#ff00ff", bd=5)
-input.place(relx=0.49, rely=0.15,relheight=0.1, relwidth=0.5, anchor="nw")
+input.place(relx=0.5, rely=0,relheight=0.1, relwidth=0.5, anchor="nw")
 
 text= tk.Label(input, text=num, font=100)
 text.place(relheight=1, relwidth=0.68)
@@ -79,7 +92,7 @@ knap_c.place(relx=0.90, relheight=1, relwidth=0.1)
 
 #knappar
 numpad= tk.Frame(root, bg="#ff00ff", bd=5)
-numpad.place(relx=0.49, rely=0.25,relheight=0.75, relwidth=0.5, anchor="nw")
+numpad.place(relx=0.5, rely=0.1,relheight=0.65, relwidth=0.5, anchor="nw")
 
 knapp_0 = tk.Button(numpad, text="0", command=lambda: knap_tryck(0))
 knapp_0.place(relx=0, rely=0.78, relwidth=1, relheight=0.22) 

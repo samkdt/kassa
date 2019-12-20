@@ -1,4 +1,5 @@
 import tkinter as tk
+from fpdf import FPDF
 
 class art:
 	def __init__(self, namn, moms):
@@ -20,6 +21,15 @@ num=0
 kvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
 
+def genkvitto():
+	kl=200
+	pdf = FPDF('P','mm',(kl, 500))
+	pdf.add_page()
+	pdf.set_font('Arial', 'B', 16)
+	pdf.set_margins(-1,-1,-1)
+	pdf.cell(kl, 10, 'kvitto', 0, 2, 'C')
+	pdf.output('tuto1.pdf', 'F')
+genkvitto()
 def update_input():
 	text['text']= num
 

@@ -22,12 +22,12 @@ kvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
 
 def genkvitto():
-	kl=200
-	pdf = FPDF('P','mm',(kl, 500))
+	kl=100
+	pdf = FPDF('P','mm',(kl, 200))
 	pdf.add_page()
 	pdf.set_font('Arial', 'B', 16)
 	pdf.set_margins(-1,-1,-1)
-	pdf.cell(kl, 10, 'kvitto', 0, 2, 'C')
+	pdf.cell((kl-50), 10, 'kvitto', 'B', 2, 'C')
 	pdf.output('tuto1.pdf', 'F')
 genkvitto()
 def update_input():

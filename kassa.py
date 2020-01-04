@@ -12,7 +12,9 @@ class prod:
 		self.antal=antal
 		self.pris=pris	
 		self.moms=moms
-		self.totpris=pris*antal
+
+	def totpris(self):
+		return (self.pris*self.antal)
 
 
 hj=1080
@@ -22,15 +24,25 @@ kvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
 
 def genkvitto():
-	kl=100
-	pdf = FPDF('P','mm',(kl, 200))
+	global kvitto
+	kb=80
+	pdf = FPDF('P','mm',(kb, 200))
+	pdf.set_margins(0,0,0)
 	pdf.add_page()
-	pdf.set_font('Arial', 'B', 16)
-	pdf.set_margins(-1,-1,-1)
-	pdf.cell((kl-50), 10, 'kvitto', 'B', 2, 'C')
+	pdf.set_font('Arial', 'B', 12)
+	pdf.cell(kb, 10, 'kvitto', 'B', 2, 'C')
+	pdf.cell((kb*0.15), 10, 'antal', 1, 0, 'L')
+	pdf.cell((kb*0.7), 10, 'namn', 1, 0, 'L')
+	pdf.cell((kb*0.15), 10, 'pris', 1, 1, 'L')
+	
+	for x in range(0,len(kvitto)):
+		pdf.cell((kb*0.15), 10, str(kvitto[x].antal), 1, 0, 'L')
+		pdf.cell((kb*0.7), 10, kvitto[x].namn , 1, 0, 'L')
+		pdf.cell((kb*0.15), 10, str(kvitto[x].totpris()), 1, 1, 'L')
+	
 	pdf.output('tuto1.pdf', 'F')
-genkvitto()
 def update_input():
+	global num
 	text['text']= num
 
 def update_display():
@@ -44,7 +56,7 @@ def update_display():
 		antal['text']+=str(kvitto[x].antal) + "\n"
 		namn['text']+=kvitto[x].namn + "\n"
 		pris['text']+=str(kvitto[x].pris) + "\n"
-		totpris['text']+=str(kvitto[x].totpris) + "\n"
+		totpris['text']+=str(kvitto[x].totpris()) + "\n"
 
 def knapp_art(artnr):
 	global num
@@ -82,7 +94,6 @@ def knapp_minus():
 	else:
 		kvitto[len(kvitto)-1].antal-=num
 	num=0
-	kvitto[len(kvitto)-1].totpris=kvitto[len(kvitto)-1].pris*kvitto[len(kvitto)-1].antal
 	update_input()
 	update_display()
 
@@ -94,7 +105,6 @@ def knapp_plus():
 	else:
 		kvitto[len(kvitto)-1].antal+=num
 	num=0
-	kvitto[len(kvitto)-1].totpris=kvitto[len(kvitto)-1].pris*kvitto[len(kvitto)-1].antal
 	update_input()
 	update_display()
 
@@ -129,7 +139,7 @@ knapp_undo=tk.Button(set, text="ångra", bg="#dddddd", fg="#000000", command=lam
 knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=0.333)
 
 
-knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000")
+knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000", command=lambda: genkvitto())
 knapp_kont.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.5)
 
 knapp_kort=tk.Button(set, text="kort", bg="#dddddd", fg="#000000")

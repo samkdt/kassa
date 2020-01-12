@@ -48,18 +48,21 @@ def update_input():
 	text['text']= num
 
 def totalt():
-    global kvitto
-        tot=0
-        for x in range(0,len(kvitto)):
-            tot+=kvitto[x].totpris()
-        return tot
+	global kvitto
+	tot=0
+	for x in range(0,len(kvitto)):
+		tot+=kvitto[x].totpris()
+	return tot
 
 def update_display():
-        print(totalt)
+	totis['text']="totalt: "+str(totalt())
 	antal['text']="antal\n"
 	namn['text']="namn\n"
 	pris['text']="pris\n"
 	totpris['text']="pris f.a.\n"
+
+	knapp_kont['bg']="#dddddd"
+	knapp_kont['activebackground']="#dddddd"
 
 	for x in range(0,len(kvitto)):
 		antal['text']+=str(kvitto[x].antal) + "\n"
@@ -122,10 +125,22 @@ def knapp_remove():
 	update_display()	
 
 def knapp_kontant():
-    pass
+	global num
+	if(num == 0):
+		if(knapp_kont['bg']=="#00ff00"):
+			kvitto.append(prod("kontant",1,(totalt()*-1),0))
+			update_display()
+		else:
+			knapp_kont['bg']="#00ff00"
+			knapp_kont['activebackground']="#00ff00"
+	else:
+		kvitto.append(prod("kontant",1,(num*-1),0))
+		update_display()
+	if(totalt()<=0):
+		print("köp klart")
 
 def knapp_kort():
-    pass
+	pass
 
 
 root = tk.Tk()
@@ -153,10 +168,10 @@ knapp_undo=tk.Button(set, text="ångra", bg="#dddddd", fg="#000000", command=lam
 knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=(1/3))
 
 
-knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000", command=lambda: genkvitto())
+knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000", command=lambda: knapp_kontant())
 knapp_kont.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.5)
 
-knapp_kort=tk.Button(set, text="kort", bg="#dddddd", fg="#000000")
+knapp_kort=tk.Button(set, text="kort", bg="#dddddd", fg="#000000", command=lambda: knapp_kort())
 knapp_kort.place(relx=0.5,rely=0.5,relheight=0.5,relwidth=0.5)
 
 

@@ -20,6 +20,8 @@ class prod:
 hj=1080
 br=1920
 num=0
+kort=0
+kont=0
 kvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
 
@@ -45,8 +47,15 @@ def update_input():
 	global num
 	text['text']= num
 
-def update_display():
+def totalt():
+    global kvitto
+        tot=0
+        for x in range(0,len(kvitto)):
+            tot+=kvitto[x].totpris()
+        return tot
 
+def update_display():
+        print(totalt)
 	antal['text']="antal\n"
 	namn['text']="namn\n"
 	pris['text']="pris\n"
@@ -113,6 +122,12 @@ def knapp_remove():
 	kvitto.pop(len(kvitto)-1)
 	update_display()	
 
+def knapp_kontant():
+    pass
+
+def knapp_kort():
+    pass
+
 
 root = tk.Tk()
 
@@ -165,7 +180,7 @@ art_3.place(relx=0.5, rely=0.5,relheight=0.5,relwidth=0.5)
 
 #kvitto display
 kvitt = tk.Frame(root, bg="#ff00ff", bd=5)
-kvitt.place(relx=0, rely=0, relheight=0.75, relwidth=0.5)
+kvitt.place(relx=0, rely=0, relheight=0.70, relwidth=0.5)
 
 antal=tk.Label(kvitt,text="antal\n", anchor="nw", bg="#dddddd", fg="#000000",font=100)
 antal.place(relx=0, rely=0, relheight=1, relwidth=0.1)
@@ -178,6 +193,12 @@ pris.place(relx=0.6, rely=0, relheight=1, relwidth=0.2)
 
 totpris=tk.Label(kvitt,text="pris f.a.\n", anchor="nw", bg="#dddddd", fg="#000000", font=100)
 totpris.place(relx=0.8, rely=0, relheight=1, relwidth=0.3)
+
+kvitt_bot=tk.Frame(root, bg="#ff00ff",bd=5)
+kvitt_bot.place(relx=0, rely=0.70, relheight=0.05, relwidth=0.5)
+
+totis=tk.Label(kvitt_bot,text="totalt: 0", anchor="nw", bg="#dddddd", fg="#000000", font=100)
+totis.place(relx=0, rely=0, relheight=1, relwidth=1.2)
 
 #numer display
 input = tk.Frame(root, bg="#ff00ff", bd=5)

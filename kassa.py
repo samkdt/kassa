@@ -78,7 +78,6 @@ def knapp_clear():
 	global num
 	num=0
 	update_input()
-	update_display()
 
 def knap_tryck(inp):
 	global num
@@ -130,13 +129,13 @@ set=tk.Frame(root, bg="#ff00ff", bd=5)
 set.place(relx=0, rely=0.75, relheight=0.25, relwidth=0.5)
 
 knapp_mer=tk.Button(set, text="+", bg="#dddddd", fg="#000000", command=lambda: knapp_plus())
-knapp_mer.place(relx=0,rely=0,relheight=0.5,relwidth=0.333)
+knapp_mer.place(relx=0,rely=0,relheight=0.5,relwidth=(1/3))
 
 knapp_min=tk.Button(set, text="-", bg="#dddddd", fg="#000000", command=lambda: knapp_minus())
-knapp_min.place(relx=0.333,rely=0,relheight=0.5,relwidth=0.333)
+knapp_min.place(relx=0.333,rely=0,relheight=0.5,relwidth=(1/3))
 
 knapp_undo=tk.Button(set, text="ångra", bg="#dddddd", fg="#000000", command=lambda: knapp_remove())
-knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=0.333)
+knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=(1/3))
 
 
 knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000", command=lambda: genkvitto())

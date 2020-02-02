@@ -15,6 +15,11 @@ class prod:
 
 	def totpris(self):
 		return (self.pris*self.antal)
+class betal(prod):
+	def __init__(self, namn, antal, pris):
+		self.namn=namn	
+		self.antal=antal
+		self.pris=pris	
 
 
 hj=1080
@@ -23,11 +28,26 @@ num=0
 kort=0
 kont=0
 kvitto=[]
+bkvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
+betal_alt=["kort","kontant"]
+
+
+def vaxel():
+	global kvitto
+	global bkvitto
+	opt=0
+	for x in range(0,len(kvitto)):
+		opt+=kvitto[x].totpris()
+	for x in range(0,len(bkvitto)):
+		opt+=bkvitto[x].totpris()
+	return opt
+	
 
 def genkvitto():
 	global kvitto
 	kb=80
+	print("1")
 	pdf = FPDF('P','mm',(kb, 200))
 	pdf.set_margins(0,0,0)
 	pdf.add_page()
@@ -42,6 +62,9 @@ def genkvitto():
 		pdf.cell((kb*0.7), 10, kvitto[x].namn , 1, 0, 'L')
 		pdf.cell((kb*0.15), 10, str(kvitto[x].totpris()), 1, 1, 'L')
 	
+	#pdf.cell(kb, 1,""p,1,0)
+
+	
 	pdf.output('tuto1.pdf', 'F')
 def update_input():
 	global num
@@ -55,7 +78,11 @@ def totalt():
 	return tot
 
 def update_display():
-	totis['text']="totalt: "+str(totalt())
+	if(vaxel()<0):
+		totis['text']="totalt: "+str(totalt())+ "\t växel: "+ str(vaxel()*-1)
+	else:
+		totis['text']="totalt: "+str(totalt())+ "\t kvar att betala: "+ str(vaxel())
+		
 	antal['text']="antal\n"
 	namn['text']="namn\n"
 	pris['text']="pris\n"
@@ -69,6 +96,12 @@ def update_display():
 		namn['text']+=kvitto[x].namn + "\n"
 		pris['text']+=str(kvitto[x].pris) + "\n"
 		totpris['text']+=str(kvitto[x].totpris()) + "\n"
+
+	for x in range(0,len(bkvitto)):
+		antal['text']+=str(bkvitto[x].antal) + "\n"
+		namn['text']+=bkvitto[x].namn + "\n"
+		pris['text']+=str(bkvitto[x].pris) + "\n"
+		totpris['text']+=str(bkvitto[x].totpris()) + "\n"
 
 def knapp_art(artnr):
 	global num
@@ -124,24 +157,20 @@ def knapp_remove():
 	kvitto.pop(len(kvitto)-1)
 	update_display()	
 
-def knapp_kontant():
+def knapp_betal(inp):
 	global num
 	if(num == 0):
 		if(knapp_kont['bg']=="#00ff00"):
-			kvitto.append(prod("kontant",1,(totalt()*-1),0))
+			kvitto.append(betal(betal_alt[inp],1,(totalt()*-1)))
 			update_display()
 		else:
 			knapp_kont['bg']="#00ff00"
 			knapp_kont['activebackground']="#00ff00"
 	else:
-		kvitto.append(prod("kontant",1,(num*-1),0))
+		kvitto.append(betal(betal_alt[inp],1,(num*-1)))
 		update_display()
 	if(totalt()<=0):
-		print("köp klart")
-
-def knapp_kort():
-	pass
-
+		genkvitto()
 
 root = tk.Tk()
 
@@ -168,10 +197,10 @@ knapp_undo=tk.Button(set, text="ångra", bg="#dddddd", fg="#000000", command=lam
 knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=(1/3))
 
 
-knapp_kont=tk.Button(set, text="kontant", bg="#dddddd", fg="#000000", command=lambda: knapp_kontant())
+knapp_kont=tk.Button(set, text=betal_alt[0], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(0))
 knapp_kont.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.5)
 
-knapp_kort=tk.Button(set, text="kort", bg="#dddddd", fg="#000000", command=lambda: knapp_kort())
+knapp_kort=tk.Button(set, text=betal_alt[1], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(1))
 knapp_kort.place(relx=0.5,rely=0.5,relheight=0.5,relwidth=0.5)
 
 

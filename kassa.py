@@ -47,7 +47,6 @@ def vaxel():
 def genkvitto():
 	global kvitto
 	kb=80
-	print("1")
 	pdf = FPDF('P','mm',(kb, 200))
 	pdf.set_margins(0,0,0)
 	pdf.add_page()
@@ -88,8 +87,10 @@ def update_display():
 	pris['text']="pris\n"
 	totpris['text']="pris f.a.\n"
 
-	knapp_kont['bg']="#dddddd"
-	knapp_kont['activebackground']="#dddddd"
+	knapp_bet0['bg']="#dddddd"
+	knapp_bet0['activebackground']="#dddddd"
+	knapp_bet1['bg']="#dddddd"
+	knapp_bet1['activebackground']="#dddddd"
 
 	for x in range(0,len(kvitto)):
 		antal['text']+=str(kvitto[x].antal) + "\n"
@@ -124,7 +125,7 @@ def knapp_clear():
 	num=0
 	update_input()
 
-def knap_tryck(inp):
+def knapp_tryck(inp):
 	global num
 	num=num*10
 	num+=inp
@@ -159,18 +160,25 @@ def knapp_remove():
 
 def knapp_betal(inp):
 	global num
+	if(inp == 0):
+		knapp=knapp_bet0
+	if(inp== 1):	
+		knapp=knapp_bet1
+
 	if(num == 0):
-		if(knapp_kont['bg']=="#00ff00"):
+		if(knapp['bg']=="#00ff00"):
 			kvitto.append(betal(betal_alt[inp],1,(totalt()*-1)))
 			update_display()
 		else:
-			knapp_kont['bg']="#00ff00"
-			knapp_kont['activebackground']="#00ff00"
+			knapp['bg']="#00ff00"
+			knapp['activebackground']="#00ff00"
 	else:
 		kvitto.append(betal(betal_alt[inp],1,(num*-1)))
 		update_display()
 	if(totalt()<=0):
 		genkvitto()
+
+
 
 root = tk.Tk()
 
@@ -197,11 +205,11 @@ knapp_undo=tk.Button(set, text="ångra", bg="#dddddd", fg="#000000", command=lam
 knapp_undo.place(relx=0.666,rely=0,relheight=0.5,relwidth=(1/3))
 
 
-knapp_kont=tk.Button(set, text=betal_alt[0], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(0))
-knapp_kont.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.5)
+knapp_bet0=tk.Button(set, text=betal_alt[0], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(0))
+knapp_bet0.place(relx=0,rely=0.5,relheight=0.5,relwidth=0.5)
 
-knapp_kort=tk.Button(set, text=betal_alt[1], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(1))
-knapp_kort.place(relx=0.5,rely=0.5,relheight=0.5,relwidth=0.5)
+knapp_bet1=tk.Button(set, text=betal_alt[1], bg="#dddddd", fg="#000000", command=lambda: knapp_betal(1))
+knapp_bet1.place(relx=0.5,rely=0.5,relheight=0.5,relwidth=0.5)
 
 
 #artiklar
@@ -250,11 +258,11 @@ input.place(relx=0.5, rely=0,relheight=0.1, relwidth=0.5, anchor="nw")
 text= tk.Label(input, text=num, font=100, bg="#dddddd", fg="#000000")
 text.place(relheight=1, relwidth=0.68)
 
-knap_bort = tk.Button(input, text="<", bg="#dddddd", fg="#000000", command=lambda: knapp_del())
-knap_bort.place(relx=0.69, relheight=1, relwidth=0.2)
+kanpp_bort = tk.Button(input, text="<", bg="#dddddd", fg="#000000", command=lambda: knapp_del())
+kanpp_bort.place(relx=0.69, relheight=1, relwidth=0.2)
 
-knap_c = tk.Button(input, text="C", bg="#dddddd", fg="#000000", command=lambda: knapp_clear())
-knap_c.place(relx=0.90, relheight=1, relwidth=0.1)
+knapp_c = tk.Button(input, text="C", bg="#dddddd", fg="#000000", command=lambda: knapp_clear())
+knapp_c.place(relx=0.90, relheight=1, relwidth=0.1)
 
 #kategory
 
@@ -263,37 +271,37 @@ knap_c.place(relx=0.90, relheight=1, relwidth=0.1)
 numpad= tk.Frame(root, bg="#ff00ff", bd=5)
 numpad.place(relx=0.5, rely=0.1,relheight=0.65, relwidth=0.5, anchor="nw")
 
-knapp_0 = tk.Button(numpad, text="0", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(0))
+knapp_0 = tk.Button(numpad, text="0", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(0))
 knapp_0.place(relx=0, rely=0.78, relwidth=1, relheight=0.22) 
 
-knapp_1 = tk.Button(numpad, text="1", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(1))
+knapp_1 = tk.Button(numpad, text="1", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(1))
 knapp_1.place(relx=0, rely=0, relwidth=0.3, relheight=0.25) 
 
-knapp_2 = tk.Button(numpad, text="2", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(2))
+knapp_2 = tk.Button(numpad, text="2", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(2))
 knapp_2.place(relx=0.35, rely=0, relwidth=0.3, relheight=0.25) 
 
-knapp_3 = tk.Button(numpad, text="3", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(3))
+knapp_3 = tk.Button(numpad, text="3", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(3))
 knapp_3.place(relx=0.7, rely=0, relwidth=0.3, relheight=0.25) 
 
-knapp_4 = tk.Button(numpad, text="4", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(4))
+knapp_4 = tk.Button(numpad, text="4", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(4))
 knapp_4.place(relx=0, rely=0.26, relwidth=0.3, relheight=0.25) 
 
-knapp_5 = tk.Button(numpad, text="5", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(5))
+knapp_5 = tk.Button(numpad, text="5", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(5))
 knapp_5.place(relx=0.35, rely=0.26, relwidth=0.3, relheight=0.25) 
 
-knapp_6 = tk.Button(numpad, text="6", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(6))
+knapp_6 = tk.Button(numpad, text="6", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(6))
 knapp_6.place(relx=0.7, rely=0.26, relwidth=0.3, relheight=0.25) 
 
-knapp_7 = tk.Button(numpad, text="7", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(7))
+knapp_7 = tk.Button(numpad, text="7", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(7))
 knapp_7.place(relx=0, rely=0.52, relwidth=0.3, relheight=0.25) 
 
-knapp_8 = tk.Button(numpad, text="8", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(8))
+knapp_8 = tk.Button(numpad, text="8", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(8))
 knapp_8.place(relx=0.35, rely=0.52, relwidth=0.3, relheight=0.25)
 
-knapp_9 = tk.Button(numpad, text="9", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(9))
+knapp_9 = tk.Button(numpad, text="9", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(9))
 knapp_9.place(relx=0.7, rely=0.52, relwidth=0.3, relheight=0.25) 
 
-knapp_0 = tk.Button(numpad, text="0", bg="#dddddd", fg="#000000", command=lambda: knap_tryck(0))
+knapp_0 = tk.Button(numpad, text="0", bg="#dddddd", fg="#000000", command=lambda: knapp_tryck(0))
 knapp_0.place(relx=0, rely=0.78, relwidth=1, relheight=0.22) 
 
 root.mainloop()

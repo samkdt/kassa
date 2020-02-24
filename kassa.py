@@ -1,10 +1,17 @@
 import tkinter as tk
 from fpdf import FPDF
+import os
+import datetime
 
 class art:
 	def __init__(self, namn, moms):
 		self.namn=namn
 		self.moms=moms
+
+class alt:
+	def __init__(self, namn, mng):
+		self.namn=namn
+		self.mng=mng
 
 class prod:
 	def __init__(self, namn, antal, pris, moms):
@@ -15,6 +22,7 @@ class prod:
 
 	def totpris(self):
 		return (self.pris*self.antal)
+
 class betal(prod):
 	def __init__(self, namn, antal, pris):
 		self.namn=namn	
@@ -25,46 +33,86 @@ class betal(prod):
 hj=1080
 br=1920
 num=0
-kort=0
-kont=0
 kvitto=[]
-bkvitto=[]
 artiklar=[art("livsmedel",12), art("godis",12), art("hygien",25), art("dricka",12)]
 betal_alt=["kort","kontant"]
 
 
 def vaxel():
 	global kvitto
-	global bkvitto
 	opt=0
 	for x in range(0,len(kvitto)):
 		opt+=kvitto[x].totpris()
-	for x in range(0,len(bkvitto)):
-		opt+=bkvitto[x].totpris()
 	return opt
 	
+def betmng():
+	global kvitto
+	betal=[]
+	for x in range(0, len(kvitto)):
+		if(kvitto[x].totpris()<0):
+			print(kvitto[x].namn)
+			if(len(betal)==0):
+				betal.append(alt(kvitto[x].namn, kvitto[x].totpris()))
+			else:
+				cont=0
+				for y in range(0, len(betal)):
+					if(kvitto[x].namn == betal[y].namn):
+						betal[y].mng+=kvitto[x].totpris()
+						cont=1
+				if(cont==0):
+					betal.append(alt(kvitto[x].namn, kvitto[x].totpris()))
+	for x in range(0, len(betal)):
+		print(betal[x].namn+" "+str(betal[x].mng))
+	return betal
+
+
 
 def genkvitto():
+	betal=betmng()
 	global kvitto
+	nu=datetime.datetime.now()
+	mapp=nu.strftime("kvitton/%Y/%m/%d/")
 	kb=80
-	pdf = FPDF('P','mm',(kb, 200))
+	kl=60+(len(kvitto)*10)
+	pdf = FPDF('P','mm',(kb, kl))
 	pdf.set_margins(0,0,0)
 	pdf.add_page()
 	pdf.set_font('Arial', 'B', 12)
 	pdf.cell(kb, 10, 'kvitto', 'B', 2, 'C')
+	pdf.cell((kb*0.5), 10, 'datum:', 'T', 0, 'L')
+	pdf.cell((kb*0.5), 10, nu.strftime("%Y-%m-%d"), 'T', 1, 'R')
+	pdf.cell((kb*0.5), 10, 'tid:', 'B', 0, 'L')
+	pdf.cell((kb*0.5), 10, nu.strftime("%H:%M"), 'B', 1, 'R')
 	pdf.cell((kb*0.15), 10, 'antal', 1, 0, 'L')
 	pdf.cell((kb*0.7), 10, 'namn', 1, 0, 'L')
 	pdf.cell((kb*0.15), 10, 'pris', 1, 1, 'L')
 	
 	for x in range(0,len(kvitto)):
-		pdf.cell((kb*0.15), 10, str(kvitto[x].antal), 1, 0, 'L')
-		pdf.cell((kb*0.7), 10, kvitto[x].namn , 1, 0, 'L')
-		pdf.cell((kb*0.15), 10, str(kvitto[x].totpris()), 1, 1, 'L')
+		if(kvitto[x].totpris()>0):
+			pdf.cell((kb*0.15), 10, str(kvitto[x].antal), 1, 0, 'L')
+			pdf.cell((kb*0.7), 10, kvitto[x].namn , 1, 0, 'L')
+			pdf.cell((kb*0.15), 10, str(kvitto[x].totpris()), 1, 1, 'L')
 	
-	#pdf.cell(kb, 1,""p,1,0)
+	pdf.cell(kb, 5,"",0,1)
+	pdf.set_font('Arial', 'B', 24)
+	pdf.cell((kb*0.5), 10, 'Totalt:', 0, 0, 'L')
+	pdf.cell((kb*0.5), 10, str(totalt())+"SEK", 0, 1, 'R')
+	if(vaxel()<0):
+		pdf.cell((kb*0.5), 10, 'växel:', 0, 0, 'L')
+		pdf.cell((kb*0.5), 10, str(vaxel()*-1)+"SEK", 0, 1, 'R')
+	pdf.set_font('Arial', 'B', 16)
+	pdf.cell((kb*0.5), 10, '', 0, 1, 'L')
+	for x in range(0, len(betal)):
+		pdf.cell((kb*0.5), 5, betal[x].namn, 0, 0, 'L')
+		pdf.cell((kb*0.5), 5, str(betal[x].mng*-1)+"SEK", 0, 1, 'R')
+	
+	if not os.path.exists(mapp):
+		os.makedirs(mapp)
+	pdf.output( mapp+nu.strftime("%H_%M_%S.pdf"), 'F')
+	kvitto.clear()
+	update_display()
 
-	
-	pdf.output('tuto1.pdf', 'F')
+
 def update_input():
 	global num
 	text['text']= num
@@ -73,7 +121,8 @@ def totalt():
 	global kvitto
 	tot=0
 	for x in range(0,len(kvitto)):
-		tot+=kvitto[x].totpris()
+		if(kvitto[x].totpris()>0):
+			tot+=kvitto[x].totpris()
 	return tot
 
 def update_display():
@@ -97,12 +146,6 @@ def update_display():
 		namn['text']+=kvitto[x].namn + "\n"
 		pris['text']+=str(kvitto[x].pris) + "\n"
 		totpris['text']+=str(kvitto[x].totpris()) + "\n"
-
-	for x in range(0,len(bkvitto)):
-		antal['text']+=str(bkvitto[x].antal) + "\n"
-		namn['text']+=bkvitto[x].namn + "\n"
-		pris['text']+=str(bkvitto[x].pris) + "\n"
-		totpris['text']+=str(bkvitto[x].totpris()) + "\n"
 
 def knapp_art(artnr):
 	global num
@@ -160,24 +203,26 @@ def knapp_remove():
 
 def knapp_betal(inp):
 	global num
-	if(inp == 0):
-		knapp=knapp_bet0
-	if(inp== 1):	
-		knapp=knapp_bet1
-
-	if(num == 0):
-		if(knapp['bg']=="#00ff00"):
-			kvitto.append(betal(betal_alt[inp],1,(totalt()*-1)))
-			update_display()
+	if(len(kvitto)>0):
+		if(inp == 0):
+			knapp=knapp_bet0
+		if(inp== 1):	
+			knapp=knapp_bet1
+	
+		if(num == 0):
+			if(knapp['bg']=="#00ff00"):
+				kvitto.append(betal(betal_alt[inp],1,(vaxel()*-1)))
+				update_display()
+			else:
+				knapp['bg']="#00ff00"
+				knapp['activebackground']="#00ff00"
 		else:
-			knapp['bg']="#00ff00"
-			knapp['activebackground']="#00ff00"
-	else:
-		kvitto.append(betal(betal_alt[inp],1,(num*-1)))
-		update_display()
-	if(totalt()<=0):
-		genkvitto()
-
+			kvitto.append(betal(betal_alt[inp],1,(num*-1)))
+			update_display()
+		if(vaxel()<=0):
+			genkvitto()
+	num=0
+	update_input()
 
 
 root = tk.Tk()

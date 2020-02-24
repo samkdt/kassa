@@ -109,6 +109,7 @@ def genkvitto():
 	if not os.path.exists(mapp):
 		os.makedirs(mapp)
 	pdf.output( mapp+nu.strftime("%H_%M_%S.pdf"), 'F')
+	pdf.output( "senaste.pdf", 'F')
 	kvitto.clear()
 	update_display()
 

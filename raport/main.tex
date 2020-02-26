@@ -5,6 +5,23 @@
 \addbibresource{kallor.bib}
 %\usepackage{times}
 
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\newcommand*\key[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+
 \title{Kassa\\\large en enkel kassa mjukvara}
 \author{Sam Sadeghi SY17}
 \date{2019/2020}
@@ -28,12 +45,34 @@
 \section{Inledning}
 Ibland hjälper jag min farbror i hans livsmedel butik. 
 Där får jag använd använda mig av kassaapparaten. 
-Programmet som kassaapparaten på farbrors jobb kör är långsamt och jag tänkte att jag skulle kunna göra ett liknande program som kör snabbare genom att endast ha med de nödvändigaste funktionerna.
+Programmet som kassaapparaten på farbrors butik kör är långsamt och jag tänkte att jag skulle kunna göra ett liknande program som kör snabbare genom att endast ha med de nödvändigaste funktionerna.
+
 \subsection{Syfte}
+
+I skapandet av det här programmet ska jag lära mig hur man gör ett grafisk program med hjälp av programmerings språket Python och gränssnitsverktyget Tkinter. 
 
 \subsection{Mål}
 
+Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betala beroende på varans typ. Programmet skall även kunna skriva ut ett kvitto 
+
 \subsection{Metod}
+
+Redskap jag kommer använda är
+
+
+Vim:\\
+Vim är ett text redigerings program som körs i konsolen.
+Det finns massor med fördelar med Vim.
+En av dessa fördelar är att den inte tar lika mycket resurser att köra som till exempel Visual Studio men det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbords-genvägar och det hjälper mig skriva snabbare inte bara det utan jag är också väldigt bekväm med att konfigurera Vim så att lättare kan skriva.
+Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknade eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med vim. 
+
+
+Python:
+
+Tkinter:
+
+FPDF:
+
 
 \section{Utförande}
 

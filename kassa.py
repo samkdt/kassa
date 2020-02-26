@@ -73,7 +73,7 @@ def genkvitto():
 	nu=datetime.datetime.now()
 	mapp=nu.strftime("kvitton/%Y/%m/%d/")
 	kb=80
-	kl=60+(len(kvitto)*10)
+	kl=100+(len(kvitto)*10)
 	pdf = FPDF('P','mm',(kb, kl))
 	pdf.set_margins(0,0,0)
 	pdf.add_page()

@@ -1,8 +1,9 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
-\usepackage[backend=biber]{biblatex}
-\addbibresource{kallor.bib}
+\usepackage{cite}
+%\usepackage[backend=bibtex]{biblatex}
+%\addbibresource{kallor.bib}
 %\usepackage{times}
 
 \usepackage{tikz}
@@ -64,12 +65,34 @@ Vim:\\
 Vim är ett text redigerings program som körs i konsolen.
 Det finns massor med fördelar med Vim.
 En av dessa fördelar är att den inte tar lika mycket resurser att köra Vim som till exempel Visual Studio men det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbords-genvägar och det hjälper mig skriva snabbare inte bara det utan jag är också väldigt bekväm med att konfigurera Vim så att lättare kan skriva.
-Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknade eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med vim än vad jag är med andra text redigerings program
+Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknade eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med Vim än vad jag är med andra text redigerings program
 
 
-Python:
+Python:\\
 % läs mer om TIOBE
-Tkinter:
+% läs https://medium.com/@mindfiresolutions.usa/python-7-important-reasons-why-you-should-use-python-5801a98a0d0b
+Python är ett programmeringsspråk.
+Jag valde just Python för att skriva det här programmet för att jag ser det väldigt ofta i min omgivning.
+Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket och dess popularitet värkar öka (se figur \ref{fig:index_python}) till skillnad från språket som ligger på första plats det vill säga Java (se figur \ref{fig:index_java}) och ju populärare ett programmeringsspråk är så finns det fler projekt som är skrivna i de programmeringsspråket därför tycker jag att det är värt att lära sig /skriva i  Python.
+
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{img/TIOBE_python.png}
+  \caption{TIOBE index för python}
+  \label{fig:index_python}
+\end{figure}
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{img/TIOBE_java.png}
+  \caption{TIOBE index för java}
+  \label{fig:index_java}
+\end{figure}
+
+
+Tkinter/TK:\\
+Tkinter är en API för att använda TK i Python. 
+TK är grafiskt gränssnits verktyg som fungerar på Windows, MacOS och Linux. 
+Jag valde Tkinter på grund av att den fungerar på dom vanligare operativsystemen 
+Tkinter kommer 
 
 FPDF:
 
@@ -85,6 +108,9 @@ Github:
 
 \newpage 
 
-\printbibliography
+\bibliography{main}{}
+\bibliographystyle{ieeetr}
+
+%\printbibliography
 
 \end{document}

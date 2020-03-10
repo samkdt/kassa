@@ -127,16 +127,19 @@ När jag börja projektet hade jag aldrig tidigare skrivit program i Python och 
 Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Keith Galli\cite{yt:galli} användes för att få en förståelse av hur man gör grafiska program med Tkinter och python. 
 
 Först behövdes ett sätt att skriva in siffror i programmet.
-Man skulle kunna använda numer knapparna på tangentbordet men eftersom ska kunna användas med endast en pekskärm så behövdes numer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i en 3 gånger 3 rutnät med en stor knap för noll längst ner (se figur \ref{fig:numpad} ).
+Man skulle kunna använda nummer knapparna på tangentbordet men eftersom ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i en 3 gånger 3 rutnät med en stor knap för noll längst ner (se figur \ref{fig:numpad} ).
+
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{img/numpad.png}
-  \caption{hur numer knapparna ser ut}
+  \caption{hur nummer knapparna ser ut}
   \label{fig:numpad}
 \end{figure}
 
 Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en lable som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
-Num är noll när programmet startar men när en numer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen; Funktionen kommer sedan att multiplicera num med tio, addera värdet den fick in till num och tillslut sätta det nya värdet för num på text
+Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen; funktionen kommer sedan att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
+Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades till en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
+Knappen som tar bort sista siffran är märkt med symbolen ''<'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng)
 
 
 \section{Resultat}

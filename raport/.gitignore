@@ -1,8 +1,5 @@
-main.aux
-main.bbl
-main.bcf
-main.blg
-main.log
-main.run.xml
-main.toc
-main.dvi
+*
+!img/
+!main.bib
+!main.pdf
+!main.tex

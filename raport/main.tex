@@ -1,10 +1,19 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{hyperref}
+\usepackage[
+    backend=biber,
+   % style=authoryear-icomp,
+    sortlocale=se_sv,
+    natbib=true,
+    url=true,
+    doi=true,
+    eprint=true
+]{biblatex}
 %\usepackage[backend=bibtex]{biblatex}
-%\addbibresource{kallor.bib}
+\addbibresource{main.bib}
 %\usepackage{times}
 
 \usepackage{tikz}
@@ -137,9 +146,9 @@ Därefter behövdes det ett sätt att se vad för nummer man skrivit
 
 \newpage 
 
-\bibliography{main}{}
-\bibliographystyle{ieeetr}
+%\bibliography{main}{}
+%\bibliographystyle{ieeetr}
 
-%\printbibliography
+\printbibliography
 
 \end{document}

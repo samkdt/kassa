@@ -139,7 +139,9 @@ Man skulle kunna använda nummer knapparna på tangentbordet men eftersom ska ku
 Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en lable som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
 Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen; funktionen kommer sedan att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
 Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades till en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
-Knappen som tar bort sista siffran är märkt med symbolen ''<'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng)
+Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng). 
+När num har konverterats till en sträng så kontrolleras det om num har fler än en karaktär i så fall tas den sista karaktären bort; om num bara har en karaktär kommer num sättas till noll.
+Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funktionen knapp\_clear när den är tryckt. Knapp\_clear är en enkel funktion som byter värdet av num till noll.
 
 
 \section{Resultat}

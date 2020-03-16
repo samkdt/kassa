@@ -126,6 +126,7 @@ Jag valde att använda Tutorialpoints sida istället för den officiella TKinter
 När jag börja projektet hade jag aldrig tidigare skrivit program i Python och det ända grafiska gränssnit jag tidigare använt var HTML på Webben så det första jag behövde göra var att lära mig.
 Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Keith Galli\cite{yt:galli} användes för att få en förståelse av hur man gör grafiska program med Tkinter och python. 
 
+
 Först behövdes ett sätt att skriva in siffror i programmet.
 Man skulle kunna använda nummer knapparna på tangentbordet men eftersom ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i en 3 gånger 3 rutnät med en stor knap för noll längst ner (se figur \ref{fig:numpad} ).
 
@@ -141,7 +142,33 @@ Num är noll när programmet startar men när en nummer knapp trycks så körs e
 Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades till en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
 Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng). 
 När num har konverterats till en sträng så kontrolleras det om num har fler än en karaktär i så fall tas den sista karaktären bort; om num bara har en karaktär kommer num sättas till noll.
-Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funktionen knapp\_clear när den är tryckt. Knapp\_clear är en enkel funktion som byter värdet av num till noll.
+Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funktionen knapp\_clear när den är tryckt. Knapp\_clear är en funktion som byter värdet av num till noll.
+
+
+Nu när det finns nummer knappar och ett sätt att se vilket nummer man har skrivit så behövs det ett sätt att säga till programmet vad numret betyder. Numret som har skrivits in kan vara en av tre saker. 
+Det kan vara en produkt, en betalning eller ett antal.
+
+En produkt är något som kunden ska köpas. Produkter representeras i koden med klassen prod. Prod har attributen namn, antal, pris och moms och en funktion som heter totpris som ger priset multiplicerat med antalet. 
+Man väljer att numret är en produkt genom att trycka på en av produkt knapparna (se figur \ref{fig:3alt}) efter att skrivit in ett nummer. Numret blir på priset av produkten.
+
+
+En betalning är hur kunden betalar för produkten. Betalningar behandlas av koden likt hur produkter behandlas det vill säga
+betalningar representeras av klassen betal som är precis som klassen prod med skillnaden att betal inte har moms attributen. Man säger till programmet att numret är en betalning genom att trycka på en av betalnings knapparna (se figur \ref{fig:3alt}) efter man har valt ett nummer. Numret blir hur mycket som ska betalas med valt betalnings alternativ. Om numret är noll kommer knappen att bli grön när och när man trycker på en grön knapp så lägger programmet en betalning som är lika stort som total priset för alla produkter minus alla tidigare betalningar.
+
+
+Antal är som sagt tidigare en attribut hos produkter och betalningar. Antal för den senaste produkten eller betslingen kan ändras men plus och minus knapparna (se figur \ref{fig:3alt}).
+När man trycker på en av antals knapparna så kollar programmet om num är noll; ifall num är noll så lägger den till eller tar bort en av antalet på den senaste
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{img/3alt.png}
+  \caption{
+	  Till höger är dom fyra produkt knapparna markerade som livsmedel, godis, hygien och dricka.
+	  Till vänster är dom två betalnings knapparna markerade med orden kontant och kort.
+	  Ovanför betalnings knapparna är antals knapparna märkta med ''+'' och ''-''.
+	}
+  \label{fig:3alt}
+\end{figure}
+
 
 
 \section{Resultat}

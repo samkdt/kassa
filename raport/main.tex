@@ -128,7 +128,7 @@ Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Ke
 
 
 Först behövdes ett sätt att skriva in siffror i programmet.
-Man skulle kunna använda nummer knapparna på tangentbordet men eftersom ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i en 3 gånger 3 rutnät med en stor knap för noll längst ner (se figur \ref{fig:numpad} ).
+Man skulle kunna använda nummer knapparna på tangentbordet men eftersom programmet ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i ett 3 gånger 3 rutnät med en stor knap för noll under det (se figur \ref{fig:numpad} ).
 
 
 \begin{figure}[h!]
@@ -138,14 +138,14 @@ Man skulle kunna använda nummer knapparna på tangentbordet men eftersom ska ku
 \end{figure}
 
 Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en lable som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
-Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen; funktionen kommer sedan att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
-Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades till en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
+Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen som ändrar num. Funktionen knapp\_tryck fungerar genom att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
+Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
 Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng). 
-När num har konverterats till en sträng så kontrolleras det om num har fler än en karaktär i så fall tas den sista karaktären bort; om num bara har en karaktär kommer num sättas till noll.
+När num har konverterats till en sträng så kontrolleras det om num har fler än en karaktär i så fall tas den sista karaktären bort. Om num bara har en karaktär när knapp\_clear kör kommer num sättas till noll.
 Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funktionen knapp\_clear när den är tryckt. Knapp\_clear är en funktion som byter värdet av num till noll.
 
 
-Nu när det finns nummer knappar och ett sätt att se vilket nummer man har skrivit så behövs det ett sätt att säga till programmet vad numret betyder. Numret som har skrivits in kan vara en av tre saker. 
+Nu när det finns nummer knappar och ett sätt att se vilket nummer man har skrivit då behövs det ett sätt att säga till programmet vad numret betyder. Numret som har skrivits in kan vara en av tre saker. 
 Det kan vara en produkt, en betalning eller ett antal.
 
 En produkt är något som kunden ska köpas. Produkter representeras i koden med klassen prod. Prod har attributen namn, antal, pris och moms och en funktion som heter totpris som ger priset multiplicerat med antalet. 
@@ -156,8 +156,8 @@ En betalning är hur kunden betalar för produkten. Betalningar behandlas av kod
 betalningar representeras av klassen betal som är precis som klassen prod med skillnaden att betal inte har moms attributen. Man säger till programmet att numret är en betalning genom att trycka på en av betalnings knapparna (se figur \ref{fig:3alt}) efter man har valt ett nummer. Numret blir hur mycket som ska betalas med valt betalnings alternativ. Om numret är noll kommer knappen att bli grön när och när man trycker på en grön knapp så lägger programmet en betalning som är lika stort som total priset för alla produkter minus alla tidigare betalningar.
 
 
-Antal är som sagt tidigare en attribut hos produkter och betalningar. Antal för den senaste produkten eller betslingen kan ändras men plus och minus knapparna (se figur \ref{fig:3alt}).
-När man trycker på en av antals knapparna så kollar programmet om num är noll; ifall num är noll så lägger den till eller tar bort en av antalet på den senaste
+Antal är som sagt tidigare en attribut hos produkter och betalningar. Antal för den senaste produkten eller betalningen kan ändras men plus och minus knapparna (se figur \ref{fig:3alt}).
+När man trycker på en av antals knapparna så kollar programmet först om num är noll. Ifall num är noll så adderas eller subtraheras (beroende på om plus eller minus knappen trycktes) en från senaste produkten eller betalningens antal, men om nun är över noll så kommer num adderas eller subtraheras från senaste produkt eller betalning. 
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{img/3alt.png}

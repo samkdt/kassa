@@ -159,15 +159,24 @@ betalningar representeras av klassen betal som är precis som klassen prod med s
 Antal är som sagt tidigare en attribut hos produkter och betalningar. Antal för den senaste produkten eller betalningen kan ändras men plus och minus knapparna (se figur \ref{fig:3alt}).
 När man trycker på en av antals knapparna så kollar programmet först om num är noll. Ifall num är noll så adderas eller subtraheras (beroende på om plus eller minus knappen trycktes) en från senaste produkten eller betalningens antal, men om nun är över noll så kommer num adderas eller subtraheras från senaste produkt eller betalning. 
 
+
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{img/3alt.png}
   \caption{
 	  Till höger är dom fyra produkt knapparna markerade som livsmedel, godis, hygien och dricka.
 	  Till vänster är dom två betalnings knapparna markerade med orden kontant och kort.
 	  Ovanför betalnings knapparna är antals knapparna märkta med ''+'' och ''-''.
+	  Bredvid antals knapparna finns ångra knappen. 
 	}
   \label{fig:3alt}
 \end{figure}
+
+
+Om man vill ta bort den senaste produkten eller betalningen man har skapat finns det en ångra knapp.
+Ångra knappen fungerar genom att köra funktionen knapp\_remove. 
+Alla betalningar och produkter sparras i en global array (en array är en lista i programmet) som heter kvitto. Vad funkutionen knapp\_remove gör är att den tar bort det sista objektet från arrayn kvitto.
+
+
 
 
 

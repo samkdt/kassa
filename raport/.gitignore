@@ -1,5 +1,8 @@
-*
-!/img/*
-!main.bib
-!main.pdf
-!main.tex
+main.bbl
+main.bcf
+main.blg
+main.log
+main.out
+main.run.xml
+main.toc
+mall.pdf

@@ -46,9 +46,9 @@
 \selectlanguage{english}
 
 \begin{abstract}
-The software for the cash register at my uncle's grocery store is slow and I believe i can make a program that is faster and runs smoother than the software found on the cash register at my uncle's grocery store.
- In creating this program i will learn tho write in the programming language python and how to make graphical apps using the graphics library TKinter for python.
-I create a nice looking GUI (graphical user interface) made of buttons and labels and a lot of functions to make every thing work.
+The software for the cash register at my uncle's grocery store is slow and I believe I can make a program that is faster and runs smoother than the software found on the cash register at my uncle's grocery store.
+ In creating this program i will learn to write in the programming language python and how to make graphical apps using the graphics library TKinter for python.
+I create a nice looking GUI (graphical user interface) made of buttons and labels and a lot of functions to make everything work.
 Due to poor time management and lots procrastinating the program ends up not having all the features i had wished for but all in all it is alright because I am smarter now than I was when I began this project
 \end{abstract}
 \selectlanguage{swedish}
@@ -57,19 +57,19 @@ Due to poor time management and lots procrastinating the program ends up not hav
 \newpage
 
 \section{Inledning}
-Ibland hjälper jag min farbror i hans livsmedel butik. 
-Där får jag använd använda mig av kassaapparaten. 
+Ibland hjälper jag min farbror i hans livsmedelsbutik. 
+Där får jag  använda mig av kassaapparaten. 
 Programmet som kassaapparaten på farbrors butik kör är långsamt och jag tänkte att jag skulle kunna göra ett liknande program som kör snabbare genom att endast ha med de nödvändigaste funktionerna.
 
 \subsection{Syfte}
 
-I skapandet av det här programmet ska jag lära mig hur man gör ett grafisk program med hjälp av programmerings språket Python och gränssnitsverktyget Tkinter. 
+I skapandet av det här programmet ska jag lära mig hur man gör ett grafiskt program med hjälp av programmeringsspråket Python och gränssnitsverktyget Tkinter. 
 
 \subsection{Mål}
 
 Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betala beroende på varans vad för slags vara det är.
  Programmet skall även kunna skriva ut ett kvitto med tid datum vad man har köpt samt netto och brutto pris.
- Man ska kunna skanna varor som tidigare har repriserats.
+ Man ska kunna scanna varor som tidigare har repriserats.
  Programmet ska kunna anpassas så den kan användas av olika sorters affärer eller restauranger.
 
 \subsection{Metod}
@@ -78,10 +78,10 @@ Redskap jag kommer använda är
 
 
 Vim:\\
-Vim är ett text redigerings program som körs i konsolen.
+Vim är ett textredigeringsprogram som körs i konsolen.
 Det finns massor med fördelar med Vim.
-En av dessa fördelar är att den inte tar lika mycket resurser att köra Vim som till exempel Visual Studio men det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbords-genvägar och det hjälper mig skriva snabbare inte bara det utan jag är också väldigt bekväm med att konfigurera Vim så att lättare kan skriva.
-Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknade eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med Vim än vad jag är med andra text redigerings program
+En av dessa fördelar är att den inte tar lika mycket resurser att köra Vim som till exempel Visual Studio men det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbordsgenvägar och det hjälper mig skriva snabbare inte bara det utan jag är också väldigt bekväm med att konfigurera Vim så att lättare kan skriva.
+Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknande eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med Vim än vad jag är med andra textredigeringsprogram
 
 
 Python:\\
@@ -89,7 +89,7 @@ Python:\\
 % läs https://medium.com/@mindfiresolutions.usa/python-7-important-reasons-why-you-should-use-python-5801a98a0d0b
 Python är ett programmeringsspråk.
 Jag valde just Python för att skriva det här programmet för att jag ser det väldigt ofta i min omgivning.
-Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket och dess popularitet värkar öka (se figur \ref{fig:index_python}) till skillnad från språket som ligger på första plats det vill säga Java (se figur \ref{fig:index_java}) och ju populärare ett programmeringsspråk är så finns det fler projekt som är skrivna i de programmeringsspråket därför tycker jag att det är värt att lära sig /skriva i  Python.
+Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket och dess popularitet verkar öka (se figur \ref{fig:index_python}) till skillnad från språket som ligger på första plats det vill säga Java (se figur \ref{fig:index_java}) och ju populärare ett programmeringsspråk är så finns det fler projekt som är skrivna i de programmeringsspråket därför tycker jag att det är värt att lära sig /skriva i  Python.
 
 
 \begin{figure}[h!]
@@ -106,8 +106,8 @@ Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket oc
 
 Tkinter/TK:\\
 Tkinter är en API för att använda TK i Python. 
-TK är grafiskt gränssnits verktyg som fungerar på Windows, MacOS och Linux. 
-Jag valde Tkinter på grund av att den fungerar på dom tre vanligare operativsystemen.
+TK är grafiskt gränssnittsverktyg som fungerar på Windows, MacOS och Linux. 
+Jag valde Tkinter på grund av att den fungerar på dom tre vanligaste operativsystemen.
 Tkinter kommer 
 
 
@@ -117,7 +117,7 @@ PDF filer är dokument filer som är optimerade för att skrivas ut.
 
 
 Github och Git:\\
-Github är en webbserver med fokus på program utveckling. 
+Github är en webbserver med fokus på programutveckling. 
 Github använder sig av version kontroll programmet Git. 
 Git gör det enkelt för mig att se vad jag har gjort och när jag har gjort det.
 Git tillsammans med Github låter mig jobba på programmet var jag än är utan att vara uppkopplad till internet
@@ -125,16 +125,16 @@ Git tillsammans med Github låter mig jobba på programmet var jag än är utan 
 
 Tutorialpoints sida på Python GUI Programming:\\
 Tutorialpoints sida på Python GUI Programming är en webbsida som har i syfte att lära hur man använder TKinter.
-Jag valde att använda Tutorialpoints sida istället för den officiella TKinter manualen efter som Tutorialpoints sida är mycket enklare att hitta information på. Det finns en lista på alla Widgets och en kort beskrivning av vad dem används för; du kan klicka på namnet av en widget du vill veta mer om och du tas till en sida där du får veta syntaxen och alla tillval för widgeten du klickat på.
+Jag valde att använda Tutorialpoints sida istället för den officiella TKinter manualen eftersom Tutorialpoints sida är mycket enklare att hitta information på. Det finns en lista på alla Widgets och en kort beskrivning av vad dem används för; du kan klicka på namnet av en widget du vill veta mer om och du tas till en sida där du får veta syntaxen och alla tillval för widgeten du klickat på.
 
 \section{Utförande}
 
-När jag börja projektet hade jag aldrig tidigare skrivit program i Python och det ända grafiska gränssnit jag tidigare använt var HTML på Webben så det första jag behövde göra var att lära mig.
+När jag börja projektet hade jag aldrig tidigare skrivit program i Python och det enda grafiska gränssnitt jag tidigare använt var HTML på Webben så det första jag behövde göra var att lära mig.
 Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Keith Galli\cite{yt:galli} användes för att få en förståelse av hur man gör grafiska program med Tkinter och python. 
 
 
 Först behövdes ett sätt att skriva in siffror i programmet.
-Man skulle kunna använda nummer knapparna på tangentbordet men eftersom programmet ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i ett 3 gånger 3 rutnät med en stor knap för noll under det (se figur \ref{fig:numpad} ).
+Man skulle kunna använda nummer knapparna på tangentbordet men eftersom programmet ska kunna användas med endast en pekskärm så behövdes nummer knappar på skärmen, Detta gjorde jag genom att att skapa tio knappar (från 0 till 9)  och placera dom i ett 3 gånger 3 rutnät med en stor knapp för noll under det (se figur \ref{fig:numpad} ).
 
 
 \begin{figure}[h!]
@@ -143,7 +143,7 @@ Man skulle kunna använda nummer knapparna på tangentbordet men eftersom progra
   \label{fig:numpad}
 \end{figure}
 
-Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en lable som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
+Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en label som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
 Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen som ändrar num. Funktionen knapp\_tryck fungerar genom att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
 Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
 Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng). 
@@ -159,7 +159,7 @@ Man väljer att numret är en produkt genom att trycka på en av produkt knappar
 
 
 En betalning är hur kunden betalar för produkten. Betalningar behandlas av koden likt hur produkter behandlas det vill säga
-betalningar representeras av klassen betal som är precis som klassen prod med skillnaden att betal inte har moms attributen. Man säger till programmet att numret är en betalning genom att trycka på en av betalnings knapparna (se figur \ref{fig:3alt}) efter man har valt ett nummer. Numret blir hur mycket som ska betalas med valt betalnings alternativ. Om numret är noll kommer knappen att bli grön när och när man trycker på en grön knapp så lägger programmet en betalning som är lika stort som total priset för alla produkter minus alla tidigare betalningar.
+betalningar representeras av klassen betal som är precis som klassen prod med skillnaden att betal inte har moms attributen. Man säger till programmet att numret är en betalning genom att trycka på en av betalnings knapparna (se figur \ref{fig:3alt}) efter man har valt ett nummer. Numret blir hur mycket som ska betalas med valt betalningsalternativ. Om numret är noll kommer knappen att bli grön när och när man trycker på en grön knapp så lägger programmet en betalning som är lika stort som total priset för alla produkter minus alla tidigare betalningar.
 
 
 Antal är som sagt tidigare en attribut hos produkter och betalningar. Antal för den senaste produkten eller betalningen kan ändras men plus och minus knapparna (se figur \ref{fig:3alt}).
@@ -180,7 +180,7 @@ När man trycker på en av antals knapparna så kollar programmet först om num 
 
 Om man vill ta bort den senaste produkten eller betalningen man har skapat finns det en ångra knapp.
 Ångra knappen fungerar genom att köra funktionen knapp\_remove. 
-Alla betalningar och produkter sparras i en global array (en array är en lista i programmet) som heter kvitto. Vad funkutionen knapp\_remove gör är att den tar bort det sista objektet från arrayn kvitto.
+Alla betalningar och produkter sparas i en global array (en array är en lista i programmet) som heter kvitto. Vad funktionen knapp\_remove gör är att den tar bort det sista objektet från arrayen kvitto.
 
 \begin{figure}[t!]
   \includegraphics[width=\linewidth]{img/kvitto_disp.png}
@@ -189,13 +189,13 @@ Alla betalningar och produkter sparras i en global array (en array är en lista 
 \end{figure}
 
 För att kunna se alla betalningar och produkter skapas en tabell med hjälp av labels. Tabellen har fyra kolumner som har rubrikerna antal, namn, pris och pris f.a. (pris för alla).
-Tabellen fungerar genom att funktionen update\_display fyller tabellen med relevant information från objekten i arrayn kvitto. Funktionen körs varje gång ett objekt läggs till i arrayn kvitto eller tas bort från arrayn kvitto.
+Tabellen fungerar genom att funktionen update\_display fyller tabellen med relevant information från objekten i arrayen kvitto. Funktionen körs varje gång ett objekt läggs till i arrayen kvitto eller tas bort från arrayen kvitto.
 
 
-Under tabellen skapades en lable där det står hur mycket allt kommer kosta totalt. Om priset för alla produkter sammanlagt är mer än "priset" för alla betalningar så ska det stå hur mycket det är kvar att betala bredvid totala kostnaden men om motsatsen är sann kommer köpet vara klart och kvar att betala ändras till växel. 
+Under tabellen skapades en lable där det står hur mycket allt kommer kosta totalt. Om priset för alla produkter sammanlagt är mer än ''priset'' för alla betalningar så ska det stå hur mycket det är kvar att betala bredvid totala kostnaden men om motsatsen är sann kommer köpet vara klart och kvar att betala ändras till växel. 
 
 
-När köpet är klart så skapas en PDF fil med kvittot på det du köpt i en mapp med dagens datum och sedan töms arrayn kvitto och programmet är redo för ett nytt köp.
+När köpet är klart så skapas en PDF fil med kvittot på det du köpt i en mapp med dagens datum och sedan töms arrayen kvitto och programmet är redo för ett nytt köp.
 
 
 \section{Resultat}
@@ -211,25 +211,25 @@ Programmet är gjort för att användas i affärer av en kassör eller vart som 
 
 
 Att använda programmet är inte helt självklart när man först kollar på det men det är inte svårt att lära sig.
-Om en kund ska köpa något så skriver man först in hur mycket det kostar med hjälp nummerknapparna på skärmen och där efter trycker man på knappen som bäst beskriver vad kunden har köpt.
-Om kunden har köpt fler än en av samma sak kan plus och minus knapparna användas för att öka eller minska antalet om antalet är mycket kan man skriva hur många gånger man ska trycka på antingen plus eller minus knappen med nummer knapparna sedan trycka på önskad knapp.
+Om en kund ska köpa något så skriver man först in hur mycket det kostar med hjälp nummerknapparna på skärmen och därefter trycker man på knappen som bäst beskriver vad kunden har köpt.
+Om kunden har köpt fler än en av samma sak kan plus och minus knapparna användas för att öka eller minska antalet om antalet är mycket kan man skriva hur många gånger man ska trycka på antingen plus eller minus knappen med nummerknapparna sedan trycka på önskad knapp.
  Om kunden ångrar sig eller om kassören har gjort ett misstag kan man ångra genom att trycka på ångra knappen.
  Slutligen trycker man på antingen kort eller kontant knappen beroende på hur kunden vill betala. Om kunden vill betala delvis med kort och delvis med kontant kan man skriva hur mycket kunden vill betala med kontant innan man trycker på kontant knappen, detsamma gäller för kort knappen
 
 
 \section{Diskussion}
 
-På grund av dålig tids planering och stora mängder prokastinering blev slut produkten inte precis så jag ville ha det.
+På grund av dålig tidsplanering och stora mängder prokastinering blev slut produkten inte precis så jag ville ha det.
 
 
 Programmet kan inte skanna streckkoder eftersom jag kunde inte komma på ett smidigt sätt skanna streckkoder. 
-Jag hade inte häller tillgång till en streckkod-scannare vilket gjorde mig osäker på hur streckkod-scannare fungerade och om idéerna jag hade på hur jag skulle implementera scannadet av streckkoder skulle fungera. Allt det plus att jag började få ont om tid fick mig att ge upp på att programmet ska kunna scanna streckkoder.
+Jag hade inte heller tillgång till en streckkod-scanner vilket gjorde mig osäker på hur streckkod-scanner fungerade och om idéerna jag hade på hur jag skulle implementera scannadet av streckkoder skulle fungera. Allt det plus att jag började få ont om tid fick mig att ge upp på att programmet ska kunna scanna streckkoder.
 
 
-Jag hade inte en kvitto-skrivare och det är därför programmet inte skriver ut kvittona utan bara skapar en pdf fil för att skrivas ut; jag vet faktiskt inte om kvitto-skrivare kan skriva ut pdf filer jag antog bara att efter som vanliga skrivare kan det kan nog kvitto skrivare det med.
+Jag hade inte en kvitto-skrivare och det är därför programmet inte skriver ut kvittona utan bara skapar en pdf fil för att skrivas ut; jag vet faktiskt inte om kvittoskrivare kan skriva ut pdf filer jag antog bara att efter som vanliga skrivare kan det kan nog kvittoskrivare det med.
 
 
-I början av arbetet hade jag en ide om att man skulle kunna ställa in saker som namnet på toppen av kvittot, bredden på kvitto pappret, färgen i bakrunden, vad man kan köpa och hur man kan betala i en konfiguration fil vilket skulle göra programmet mycket enklare att anpassa. I nu läget kan man endast ändra dessa saker genom att ändra på koden men för att göra det krävs det grundläggande kunskaper om programmering och programmerings språket python vilket inte alla har och jag vill att programmet ska användas av vem som helst.
+I början av arbetet hade jag en ide om att man skulle kunna ställa in saker som namnet på toppen av kvittot, bredden på kvitto pappret, färgen i bakgrunden, vad man kan köpa och hur man kan betala i en konfiguration fil vilket skulle göra programmet mycket enklare att anpassa. I nuläget kan man endast ändra dessa saker genom att ändra på koden men för att göra det krävs det grundläggande kunskaper om programmering och programmeringsspråket python vilket inte alla har och jag vill att programmet ska användas av vem som helst.
 
 
 
@@ -241,7 +241,7 @@ Syftet med arbetet var att jag skulle lära mig programmera i python och göra g
 Jag lyckades kanske inte helt med mitt mål men jag kom rätt så långt och nu är jag mer kunnig än jag var när jag påbörjade det här arbetet.
 I framtiden kommer jag nog planera min tid bättre genom att till exempel sätta upp mål och deadlines för mig själv.
 
-Vissa saker jag inte gjorde som exempelvis konfigurations filen är inte så svårt att fixa och kan lätt läggas till i nästa uppdatering av programmet men för just nu så fungerar programmet och den gör vad den är gjord för att göra.  
+Vissa saker jag inte hann göra som exempelvis konfigurationsfilen är inte så svårt att fixa och kan lätt läggas till i nästa uppdatering av programmet men för just nu så fungerar programmet och den gör vad den är gjord för att göra.  
 
 
 \newpage 

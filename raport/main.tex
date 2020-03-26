@@ -46,7 +46,10 @@
 \selectlanguage{english}
 
 \begin{abstract}
-
+The software for the cash register at my uncle's grocery store is slow and I believe i can make a program that is faster and runs smoother than the software found on the cash register at my uncle's grocery store.
+ In creating this program i will learn tho write in the programming language python and how to make graphical apps using the graphics library TKinter for python.
+I create a nice looking GUI (graphical user interface) made of buttons and labels and a lot of functions to make every thing work.
+Due to poor time management and lots procrastinating the program ends up not having all the features i had wished for but all in all it is alright because I am smarter now than I was when I began this project
 \end{abstract}
 \selectlanguage{swedish}
 \newpage
@@ -179,6 +182,11 @@ Om man vill ta bort den senaste produkten eller betalningen man har skapat finns
 Ångra knappen fungerar genom att köra funktionen knapp\_remove. 
 Alla betalningar och produkter sparras i en global array (en array är en lista i programmet) som heter kvitto. Vad funkutionen knapp\_remove gör är att den tar bort det sista objektet från arrayn kvitto.
 
+\begin{figure}[t!]
+  \includegraphics[width=\linewidth]{img/kvitto_disp.png}
+  \caption{ hur tabellen ser ut när den används}
+  \label{fig:kdisp}
+\end{figure}
 
 För att kunna se alla betalningar och produkter skapas en tabell med hjälp av labels. Tabellen har fyra kolumner som har rubrikerna antal, namn, pris och pris f.a. (pris för alla).
 Tabellen fungerar genom att funktionen update\_display fyller tabellen med relevant information från objekten i arrayn kvitto. Funktionen körs varje gång ett objekt läggs till i arrayn kvitto eller tas bort från arrayn kvitto.
@@ -186,11 +194,6 @@ Tabellen fungerar genom att funktionen update\_display fyller tabellen med relev
 
 Under tabellen skapades en lable där det står hur mycket allt kommer kosta totalt. Om priset för alla produkter sammanlagt är mer än "priset" för alla betalningar så ska det stå hur mycket det är kvar att betala bredvid totala kostnaden men om motsatsen är sann kommer köpet vara klart och kvar att betala ändras till växel. 
 
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{img/kvitto_disp.png}
-  \caption{ hur tabellen ser ut när den används}
-  \label{fig:kdisp}
-\end{figure}
 
 När köpet är klart så skapas en PDF fil med kvittot på det du köpt i en mapp med dagens datum och sedan töms arrayn kvitto och programmet är redo för ett nytt köp.
 
@@ -216,8 +219,30 @@ Om kunden har köpt fler än en av samma sak kan plus och minus knapparna använ
 
 \section{Diskussion}
 
+På grund av dålig tids planering och stora mängder prokastinering blev slut produkten inte precis så jag ville ha det.
+
+
+Programmet kan inte skanna streckkoder eftersom jag kunde inte komma på ett smidigt sätt skanna streckkoder. 
+Jag hade inte häller tillgång till en streckkod-scannare vilket gjorde mig osäker på hur streckkod-scannare fungerade och om idéerna jag hade på hur jag skulle implementera scannadet av streckkoder skulle fungera. Allt det plus att jag började få ont om tid fick mig att ge upp på att programmet ska kunna scanna streckkoder.
+
+
+Jag hade inte en kvitto-skrivare och det är därför programmet inte skriver ut kvittona utan bara skapar en pdf fil för att skrivas ut; jag vet faktiskt inte om kvitto-skrivare kan skriva ut pdf filer jag antog bara att efter som vanliga skrivare kan det kan nog kvitto skrivare det med.
+
+
+I början av arbetet hade jag en ide om att man skulle kunna ställa in saker som namnet på toppen av kvittot, bredden på kvitto pappret, färgen i bakrunden, vad man kan köpa och hur man kan betala i en konfiguration fil vilket skulle göra programmet mycket enklare att anpassa. I nu läget kan man endast ändra dessa saker genom att ändra på koden men för att göra det krävs det grundläggande kunskaper om programmering och programmerings språket python vilket inte alla har och jag vill att programmet ska användas av vem som helst.
+
+
+
+Syftet med arbetet var att jag skulle lära mig programmera i python och göra grafiska appar, saker som jag aldrig gjort förut, och nu när arbetet är klart kan jag med säkerhet säga att jag kan det. Jag har lärt mig mycket mer än vad jag trodde jag skulle lära mig. Jag visste om klasser sen tidigare men jag har aldrig riktigt förstått vad dom skulle användas för eller hur man använder dom men i skapandet av detta programmet förstår jag klasser väldigt mycket bättre än vad jag gjorde tidigare.
+
 
 \section{Slutsats}
+
+Jag lyckades kanske inte helt med mitt mål men jag kom rätt så långt och nu är jag mer kunnig än jag var när jag påbörjade det här arbetet.
+I framtiden kommer jag nog planera min tid bättre genom att till exempel sätta upp mål och deadlines för mig själv.
+
+Vissa saker jag inte gjorde som exempelvis konfigurations filen är inte så svårt att fixa och kan lätt läggas till i nästa uppdatering av programmet men för just nu så fungerar programmet och den gör vad den är gjord för att göra.  
+
 
 \newpage 
 

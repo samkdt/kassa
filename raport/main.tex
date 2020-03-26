@@ -64,7 +64,10 @@ I skapandet av det här programmet ska jag lära mig hur man gör ett grafisk pr
 
 \subsection{Mål}
 
-Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betala beroende på varans typ. Programmet skall även kunna skriva ut ett kvitto 
+Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betala beroende på varans vad för slags vara det är.
+ Programmet skall även kunna skriva ut ett kvitto med tid datum vad man har köpt samt netto och brutto pris.
+ Man ska kunna skanna varor som tidigare har repriserats.
+ Programmet ska kunna anpassas så den kan användas av olika sorters affärer eller restauranger.
 
 \subsection{Metod}
 
@@ -177,12 +180,42 @@ Om man vill ta bort den senaste produkten eller betalningen man har skapat finns
 Alla betalningar och produkter sparras i en global array (en array är en lista i programmet) som heter kvitto. Vad funkutionen knapp\_remove gör är att den tar bort det sista objektet från arrayn kvitto.
 
 
+För att kunna se alla betalningar och produkter skapas en tabell med hjälp av labels. Tabellen har fyra kolumner som har rubrikerna antal, namn, pris och pris f.a. (pris för alla).
+Tabellen fungerar genom att funktionen update\_display fyller tabellen med relevant information från objekten i arrayn kvitto. Funktionen körs varje gång ett objekt läggs till i arrayn kvitto eller tas bort från arrayn kvitto.
 
+
+Under tabellen skapades en lable där det står hur mycket allt kommer kosta totalt. Om priset för alla produkter sammanlagt är mer än "priset" för alla betalningar så ska det stå hur mycket det är kvar att betala bredvid totala kostnaden men om motsatsen är sann kommer köpet vara klart och kvar att betala ändras till växel. 
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{img/kvitto_disp.png}
+  \caption{ hur tabellen ser ut när den används}
+  \label{fig:kdisp}
+\end{figure}
+
+När köpet är klart så skapas en PDF fil med kvittot på det du köpt i en mapp med dagens datum och sedan töms arrayn kvitto och programmet är redo för ett nytt köp.
 
 
 \section{Resultat}
 
+Resultatet av arbetet är ett enkelt program för som kan lätt användas för att skapa kvitton.
+Programmet är gjort för att användas i affärer av en kassör eller vart som helst där köper saker i person och kan behöva ett kvitto.
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{img/ferdig.png}
+  \caption{ hur det färdiga programmet ser ut}
+  \label{fig:färdig}
+\end{figure}
+
+
+Att använda programmet är inte helt självklart när man först kollar på det men det är inte svårt att lära sig.
+Om en kund ska köpa något så skriver man först in hur mycket det kostar med hjälp nummerknapparna på skärmen och där efter trycker man på knappen som bäst beskriver vad kunden har köpt.
+Om kunden har köpt fler än en av samma sak kan plus och minus knapparna användas för att öka eller minska antalet om antalet är mycket kan man skriva hur många gånger man ska trycka på antingen plus eller minus knappen med nummer knapparna sedan trycka på önskad knapp.
+ Om kunden ångrar sig eller om kassören har gjort ett misstag kan man ångra genom att trycka på ångra knappen.
+ Slutligen trycker man på antingen kort eller kontant knappen beroende på hur kunden vill betala. Om kunden vill betala delvis med kort och delvis med kontant kan man skriva hur mycket kunden vill betala med kontant innan man trycker på kontant knappen, detsamma gäller för kort knappen
+
+
 \section{Diskussion}
+
 
 \section{Slutsats}
 

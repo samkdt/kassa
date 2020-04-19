@@ -47,9 +47,9 @@
 
 \begin{abstract}
 The software for the cash register at my uncle's grocery store is slow and I believe I can make a program that is faster and runs smoother than the software found on the cash register at my uncle's grocery store.
- In creating this program i will learn to write in the programming language python and how to make graphical apps using the graphics library TKinter for python.
-I create a nice looking GUI (graphical user interface) made of buttons and labels and a lot of functions to make everything work.
-Due to poor time management and lots procrastinating the program ends up not having all the features i had wished for but all in all it is alright because I am smarter now than I was when I began this project
+ In creating this program i have learned how to write in the ever-growing programming language Python and how to make graphical apps using the graphics library TKinter for Python.
+I have created a nice looking and simple GUI (graphical user interface) made of buttons and labels and as I made the GUI I wrote all the underlying classes and functions to make it all work.
+Due to poor time management and lots procrastinating the program ended up not having all the features I had wished for but all in all I fell that this project was all right because I am now more knowledgeable than I was when I began this project.
 \end{abstract}
 \selectlanguage{swedish}
 \newpage
@@ -59,15 +59,24 @@ Due to poor time management and lots procrastinating the program ends up not hav
 \section{Inledning}
 Ibland hjälper jag min farbror i hans livsmedelsbutik. 
 Där får jag  använda mig av kassaapparaten. 
-Programmet som kassaapparaten på farbrors butik kör är långsamt och jag tänkte att jag skulle kunna göra ett liknande program som kör snabbare genom att endast ha med de nödvändigaste funktionerna.
+Programmet som kassaapparaten på min farbrors butik kör är långsamt och jag tänkte att jag skulle kunna göra ett liknande program som kör snabbare genom att endast ha med de nödvändigaste funktionerna.
+ Programmet som ska skapas ska endast räkna ihop hur mycket kunden ska betala och hur mycket kunden har betalat den ska även kunna komma ihåg hur mycket varje kund skulle betala och har betalat och naturligtvis ett grafiskt gränssnitt som hjälper kassören att mata in relevant information för programmet att kunna göra det.
+Programmet kommer inte ha olika sidor för olika saker som en sida för inloggning och en sida för inställningar som mjukvaran på min farbrors kassaapparat har.
+
 
 \subsection{Syfte}
 
-I skapandet av det här programmet ska jag lära mig hur man gör ett grafiskt program med hjälp av programmeringsspråket Python och gränssnitsverktyget Tkinter. 
+I skapandet av den här kassa mjukvaran ska jag lära mig hur man gör ett grafiskt program med hjälp av programmeringsspråket Python och gränssnitsverktyget Tkinter.
+
+Det blir allt vanligare att ha webb-appar som är program som körs i en webbläsare eftersom dom tar minde plats på datorn och man kan ha tillgång till programmet från vart man vill.
+Även då webb-appar blir vanligare tycker jag att det skulle vara bättre att skriva mjukvaran för kassaapparaten som ett grafiskt program för flera anledningar.
+För det första webb-appar kräver en webbläsare det betyder att du måste ha ännu ett program som segar ner dator uppe hela tiden.
+För det andra webb-appar måste ha internet för att fungera en kassaapparat bör fungera även när internet är nere.
+Sist är det för att jag har skapat många webb-appar dessa tre år jag gått i gymnasiet och jag känner mig väldigt bekväm med att göra webb-appar, jag vill lära mig något nytt och grafiska appar är nytt nog för att jag ska lära mig något men samtidigt bekant nog för att jag ska kunna använda mig av tidigare kunskap jag har från tre år av att gå i gymnasiet.
 
 \subsection{Mål}
 
-Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betala beroende på varans vad för slags vara det är.
+Vid slutet av arbetet ska jag ha ett enkelt kassa program som kan räkna ihop summan av flera varor samt hur mycket moms som skall betalas beroende på varans vad för slags vara det är.
  Programmet skall även kunna skriva ut ett kvitto med tid datum vad man har köpt samt netto och brutto pris.
  Man ska kunna scanna varor som tidigare har repriserats.
  Programmet ska kunna anpassas så den kan användas av olika sorters affärer eller restauranger.
@@ -80,8 +89,8 @@ Redskap jag kommer använda är
 Vim:\\
 Vim är ett textredigeringsprogram som körs i konsolen.
 Det finns massor med fördelar med Vim.
-En av dessa fördelar är att den inte tar lika mycket resurser att köra Vim som till exempel Visual Studio men det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbordsgenvägar och det hjälper mig skriva snabbare inte bara det utan jag är också väldigt bekväm med att konfigurera Vim så att lättare kan skriva.
-Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar den programmet. Andra program kan säkert görande någonting liknande eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden och som sagt tidigare är jag mycket bekvämare med Vim än vad jag är med andra textredigeringsprogram
+En av dessa fördelar är att det inte tas upp lika mycket resurser att köra Vim som det gör med många andra textredigeringsprogram som till exempel Visual Studio. Det i sig är inte så viktigt utan den största anledningen till varför jag jag använde Vim för att skriva det här programmet är att jag har vant mig vid Vims massor med tangentbordsgenvägar som hjälper mig skriva snabbare. Jag är väldigt bekväm med att konfigurera Vim så att jag kan lättare skriva.
+Ett av dessa konfigurationer jag har gjort för att underlätta mitt skapande av programmet är att jag har gjort så att när jag trycker ner på \key{Ctrl } och \key{W} samtidigt så startar Vim programmet. Andra program kan säkert göra någonting liknande eller kanske till och med kommer inbyggt med en sådan funktion men i Vim får jag göra det det själv som får mig att bättre förstå vad som händer i bakgrunden.
 
 
 Python:\\
@@ -89,17 +98,17 @@ Python:\\
 % läs https://medium.com/@mindfiresolutions.usa/python-7-important-reasons-why-you-should-use-python-5801a98a0d0b
 Python är ett programmeringsspråk.
 Jag valde just Python för att skriva det här programmet för att jag ser det väldigt ofta i min omgivning.
-Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket och dess popularitet verkar öka (se figur \ref{fig:index_python}) till skillnad från språket som ligger på första plats det vill säga Java (se figur \ref{fig:index_java}) och ju populärare ett programmeringsspråk är så finns det fler projekt som är skrivna i de programmeringsspråket därför tycker jag att det är värt att lära sig /skriva i  Python.
+Enligt TIOBE indexet \cite{TIOBE} är Python det tredje populäraste språket och dess popularitet verkar öka (se figur \ref{fig:index_python}) till skillnad från språket som ligger på första plats det vill säga Java (se figur \ref{fig:index_java}). Ju populärare ett programmeringsspråk är så finns det fler projekt som är skrivna i de programmeringsspråket därför tycker jag att det är värt att lära sig skriva i Python.
 
 
 \begin{figure}[t!]
   \includegraphics[width=\linewidth]{img/TIOBE_python.png}
-  \caption{TIOBE index för python}
+  \caption{Ett linjediagram av TIOBE som visar hur programmeringsspråket Python har ökat i popularitet genom åren}
   \label{fig:index_python}
 \end{figure}
 \begin{figure}[t!]
   \includegraphics[width=\linewidth]{img/TIOBE_java.png}
-  \caption{TIOBE index för java}
+  \caption{Ett linjediagram av TIOBE som visar hur programmeringsspråket Java har sjunkit i popularitet genom åren}
   \label{fig:index_java}
 \end{figure}
 
@@ -130,7 +139,7 @@ Jag valde att använda Tutorialpoints sida istället för den officiella TKinter
 \section{Utförande}
 
 När jag börja projektet hade jag aldrig tidigare skrivit program i Python och det enda grafiska gränssnitt jag tidigare använt var HTML på Webben så det första jag behövde göra var att lära mig.
-Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Keith Galli\cite{yt:galli} användes för att få en förståelse av hur man gör grafiska program med Tkinter och python. 
+Youtube videon ''How to Program a GUI Application (with Python Tkinter)!'' av Keith Galli\cite{yt:galli} användes för att få en förståelse av hur man gör grafiska program med Tkinter och Python. 
 
 
 Först behövdes ett sätt att skriva in siffror i programmet.
@@ -145,9 +154,12 @@ Man skulle kunna använda nummer knapparna på tangentbordet men eftersom progra
 \end{figure}
 
 Därefter behövdes det ett sätt att se vad för nummer man skrivit; för det användes det en label som döptes till text tillsammans med en global variabel som deklarerades med namnet num.
+En label i Tkinter är en plats där text kan vissas.
 Num är noll när programmet startar men när en nummer knapp trycks så körs en funktion vid namnet knapp\_tryck med värdet på knappen som ändrar num. Funktionen knapp\_tryck fungerar genom att multiplicera num med tio, addera värdet den fick in till num och tillslut visa det nya värdet för num på text. 
-Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit därför implementerades en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
-Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng (detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng). 
+Nu kan användaren skriva in siffror i programmet men det saknas ett sätt att ta bort eller ångra siffror man skrivit, därför implementerades en knapp som raderar den sista siffran på talet och en knapp som tar bort hela talet.
+Knappen som tar bort sista siffran är märkt med symbolen ''\textless'' och fungerar genom att kalla på funktionen knapp\_del. Funktionen knapp\_del fungerar på så sätt att den konverterar num till en sträng.
+En sträng i programmering är en lista av karaktärer det kan vara till exempel ett ord, en mening eller i det här fallet siffror.
+Detta görs för att det är lättare att kolla storleken och ta bort sista karaktären av en sträng. 
 När num har konverterats till en sträng så kontrolleras det om num har fler än en karaktär i så fall tas den sista karaktären bort. Om num bara har en karaktär när knapp\_clear kör kommer num sättas till noll.
 Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funktionen knapp\_clear när den är tryckt. Knapp\_clear är en funktion som byter värdet av num till noll.
 
@@ -155,7 +167,7 @@ Knappen som tar bort hela talet har bokstaven ''C'' på sig och kallar på funkt
 Nu när det finns nummer knappar och ett sätt att se vilket nummer man har skrivit då behövs det ett sätt att säga till programmet vad numret betyder. Numret som har skrivits in kan vara en av tre saker. 
 Det kan vara en produkt, en betalning eller ett antal.
 
-En produkt är något som kunden ska köpas. Produkter representeras i koden med klassen prod. Prod har attributen namn, antal, pris och moms och en funktion som heter totpris som ger priset multiplicerat med antalet. 
+En produkt är något som kunden ska köpa. Produkter representeras i koden med klassen prod. Prod har attributen namn, antal, pris och moms och en funktion som heter totpris som ger priset multiplicerat med antalet. 
 Man väljer att numret är en produkt genom att trycka på en av produkt knapparna (se figur \ref{fig:3alt}) efter att skrivit in ett nummer. Numret blir på priset av produkten.
 
 
@@ -231,11 +243,11 @@ Jag hade inte heller tillgång till en streckkod-scanner vilket gjorde mig osäk
 Jag hade inte en kvitto-skrivare och det är därför programmet inte skriver ut kvittona utan bara skapar en pdf fil för att skrivas ut; jag vet faktiskt inte om kvittoskrivare kan skriva ut pdf filer jag antog bara att efter som vanliga skrivare kan det kan nog kvittoskrivare det med.
 
 
-I början av arbetet hade jag en ide om att man skulle kunna ställa in saker som namnet på toppen av kvittot, bredden på kvitto pappret, färgen i bakgrunden, vad man kan köpa och hur man kan betala i en konfiguration fil vilket skulle göra programmet mycket enklare att anpassa. I nuläget kan man endast ändra dessa saker genom att ändra på koden men för att göra det krävs det grundläggande kunskaper om programmering och programmeringsspråket python vilket inte alla har och jag vill att programmet ska användas av vem som helst.
+I början av arbetet hade jag en ide om att man skulle kunna ställa in saker som namnet på toppen av kvittot, bredden på kvitto pappret, färgen i bakgrunden, vad man kan köpa och hur man kan betala i en konfiguration fil vilket skulle göra programmet mycket enklare att anpassa. I nuläget kan man endast ändra dessa saker genom att ändra på koden men för att göra det krävs det grundläggande kunskaper om programmering och programmeringsspråket Python vilket inte alla har och jag vill att programmet ska användas av vem som helst.
 
 
 
-Syftet med arbetet var att jag skulle lära mig programmera i python och göra grafiska appar, saker som jag aldrig gjort förut, och nu när arbetet är klart kan jag med säkerhet säga att jag kan det. Jag har lärt mig mycket mer än vad jag trodde jag skulle lära mig. Jag visste om klasser sen tidigare men jag har aldrig riktigt förstått vad dom skulle användas för eller hur man använder dom men i skapandet av detta programmet förstår jag klasser väldigt mycket bättre än vad jag gjorde tidigare.
+Syftet med arbetet var att jag skulle lära mig programmera i Python och göra grafiska appar, saker som jag aldrig gjort förut, och nu när arbetet är klart kan jag med säkerhet säga att jag kan det. Jag har lärt mig mycket mer än vad jag trodde jag skulle lära mig. Jag visste om klasser sen tidigare men jag har aldrig riktigt förstått vad dom skulle användas för eller hur man använder dom men i skapandet av detta programmet förstår jag klasser väldigt mycket bättre än vad jag gjorde tidigare.
 
 
 \section{Slutsats}

@@ -33,6 +33,17 @@
   ;
 }
 
+
+\def\@maketitle{
+\raggedright
+\includegraphics[width = 40mm]{img/logo.png}\\[8ex]
+\begin{center}
+{\Huge \bfseries \sffamily \@title }\\[4ex] 
+{\Large  \@author}\\[4ex] 
+\@date\\[8ex]
+\end{center}}
+
+
 \title{Kassa\\\large en enkel kassa mjukvara}
 \author{Sam Sadeghi SY17}
 \date{2019/2020}
@@ -40,7 +51,14 @@
  
 \begin{document}
 \begin{titlepage}
-\maketitle
+%\maketitle
+\raggedright
+\includegraphics[width = 40mm]{img/logo.png}\\[8ex]
+\begin{center}
+{\Huge \bfseries \sffamily Kassa\\\large en enkel kassa mjukvara }\\[4ex] 
+{\Large  Sam Sadeghi SY17}\\[4ex] 
+2019/2020\\[8ex]
+\end{center}}
 \end{titlepage}
 
 \selectlanguage{english}
